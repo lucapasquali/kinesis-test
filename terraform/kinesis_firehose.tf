@@ -9,7 +9,7 @@ resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream" {
 
   kinesis_source_configuration {
     kinesis_stream_arn = "${aws_kinesis_stream.luca_stream.arn}"
-    role_arn           = "${aws_iam_role.kinesis_iam.arn}"
+    role_arn           = "${aws_iam_role.firehose_role.arn}"
   }
 }
 
