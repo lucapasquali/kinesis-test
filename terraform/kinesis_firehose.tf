@@ -38,10 +38,11 @@ resource "aws_iam_role" "firehose_role" {
 EOF
 }
 
-resource "aws_iam_role" "kinesis_iam" {
+resource "aws_iam_role_policy" "kinesis_iam" {
   name = "kinesis_iam"
+  role = "${aws_iam_role.firehose_role.id}"
 
-  assume_role_policy = <<EOF
+  policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
