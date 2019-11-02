@@ -1,15 +1,15 @@
-resource "aws_kinesis_firehose_delivery_stream" "extended_s3_stream" {
-  name        = "terraform-kinesis-firehose-extended-s3-luca-stream"
-  destination = "extended_s3"
+resource "aws_kinesis_firehose_delivery_stream" "test_stream" {
+  name        = "terraform-kinesis-firehose-test-stream"
+  destination = "s3"
 
-  extended_s3_configuration {
+  s3_configuration {
     role_arn   = "${aws_iam_role.firehose_role.arn}"
-    bucket_arn = "${aws_s3_bucket.luca_bucket.arn}"
+    bucket_arn = "${aws_s3_bucket.bucket.arn}"
   }
 
   kinesis_source_configuration {
     kinesis_stream_arn = "${aws_kinesis_stream.luca_stream.arn}"
-    role_arn           = "${aws_iam_role.firehose_role.arn}"
+    role_arn           = "${aws_iam_role.kinesis_iam.arn}"
   }
 }
 
@@ -38,11 +38,10 @@ resource "aws_iam_role" "firehose_role" {
 EOF
 }
 
-resource "aws_iam_role_policy" "kinesis_iam" {
+resource "aws_iam_role" "kinesis_iam" {
   name = "kinesis_iam"
-  role = "${aws_iam_role.firehose_role.id}"
 
-  policy = <<EOF
+  assume_role_policy = <<EOF
 {
     "Version": "2012-10-17",
     "Statement": [
