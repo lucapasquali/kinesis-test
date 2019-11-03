@@ -1,20 +1,20 @@
 # kinesis-test
 test kinesis with localstack
 
-### Prerequisites
+## Prerequisites
 
 This prototype has been tested on Mac machines and requires [homebrew](https://brew.sh/) and [Dokcer](https://docs.docker.com/docker-for-mac/install/)
 
-## python
+### python
 
 We used Python 3.7.4 for this exercise. In order to setup the default version for console we used `pipenv` as explained [here](https://opensource.com/article/19/5/python-3-default-mac)
 
-## localstack
+### localstack
 
 We used `pip` to install Localstack, more information [here](https://github.com/localstack/localstack#installing)
 To start locakstack as a docker container, we used the command suggested [here](https://github.com/localstack/localstack#running-in-docker)
 
-### Usage
+## Usage
 
 The Localstack configuration relies on Terraform. In order to push the configuration, follow the procedure below
 ```
