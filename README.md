@@ -3,7 +3,7 @@ test kinesis with localstack
 
 ## Prerequisites
 
-This prototype has been tested on Mac machines and requires [homebrew](https://brew.sh/) and [Dokcer](https://docs.docker.com/docker-for-mac/install/)
+This prototype has been tested on Mac machines and requires [homebrew](https://brew.sh/) and [Docker](https://docs.docker.com/docker-for-mac/install/)
 
 ### python
 
